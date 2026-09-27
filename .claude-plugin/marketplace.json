@@ -1,0 +1,16 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "bench-claude",
+  "description": "Benchmark tools for Claude Code using bench-node.",
+  "owner": {
+    "name": "gusanthiago"
+  },
+  "plugins": [
+    {
+      "name": "bench-claude",
+      "description": "Run benchmarks with bench-node and generate Markdown reports.",
+      "source": "./",
+      "category": "development"
+    }
+  ]
+}

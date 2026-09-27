@@ -1,0 +1,15 @@
+{
+  "name": "bench-claude",
+  "version": "0.1.0",
+  "description": "Run benchmarks with bench-node and generate Markdown reports.",
+  "author": {
+    "name": "gusanthiago"
+  },
+  "keywords": [
+    "benchmark",
+    "bench-node",
+    "performance",
+    "nodejs",
+    "report"
+  ]
+}
