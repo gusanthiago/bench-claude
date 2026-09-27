@@ -1,6 +1,6 @@
 {
   "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
-  "name": "bench-claude",
+  "name": "gusanthiago",
   "description": "Benchmark tools for Claude Code using bench-node.",
   "owner": {
     "name": "gusanthiago"
