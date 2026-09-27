@@ -3,7 +3,8 @@
   "version": "0.1.0",
   "description": "Run benchmarks with bench-node and generate Markdown reports.",
   "author": {
-    "name": "gusanthiago"
+    "name": "gusanthiago",
+    "url": "https://github.com/gusanthiago"
   },
   "license": "MIT",
   "keywords": [
