@@ -6,23 +6,22 @@ I decided to use bench-node because it's a good tool for Node.js and I have been
 
 ## Requirements
 
-* Node.js > 14
+* Node.js >= 18.14
 * [bench-node](https://github.com/RafaelGSS/bench-node) 0.1.0 or newer in your project -> `npm install --save-dev bench-node`
   * With 0.5.0 – 0.5.3 the report has no mean, p75, p99 and CV (these versions don't return the samples)
 
 ## Install
 
-Only for one session:
+```
+/plugin marketplace add gusanthiago/bench-claude
+/plugin install bench-claude@gusanthiago
+```
+
+Only for one session, from a local copy:
 
 ```sh
-claude --plugin-dir /path/to/bench-claude
-```
-
-With the marketplace:
-
-```
-/plugin marketplace add /path/to/bench-claude
-/plugin install bench-claude@gusanthiago
+git clone https://github.com/gusanthiago/bench-claude.git
+claude --plugin-dir ./bench-claude
 ```
 
 ## How to use
@@ -98,3 +97,7 @@ npm run validate  # claude plugin validate .
 * `scripts/summarize.mjs`, `scripts/render.mjs` -> stats and Markdown
 * `scripts/utils.mjs` -> helpers
 * `test/` -> tests and fixtures
+
+## License
+
+[MIT](LICENSE)
