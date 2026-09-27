@@ -1,0 +1,17 @@
+{
+  "name": "bench-claude",
+  "private": true,
+  "description": "Claude Code plugin to run benchmarks with bench-node and generate Markdown reports.",
+  "type": "module",
+  "engines": {
+    "node": ">=22.12"
+  },
+  "scripts": {
+    "test": "vitest run --testTimeout=30000",
+    "validate": "claude plugin validate ."
+  },
+  "devDependencies": {
+    "bench-node": "^0.15.0",
+    "vitest": "^5.0.2"
+  }
+}
