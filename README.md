@@ -73,6 +73,17 @@ Each run creates 2 files in `bench-results/`:
 * Works with your benchmark files as they are: any reporter, CommonJS or ESM
 * If `capture.cjs` can't read the results, your benchmark still finishes and you see the error
 
+## What it runs
+
+Everything runs on your machine. The plugin doesn't send your data anywhere and doesn't download anything.
+
+* `node` -> runs the benchmark file that you choose (your own code), with `--allow-natives-syntax`, `--expose-gc` and `--require scripts/capture.cjs`
+* `git rev-parse` and `git status` -> add the commit and branch to the report
+* `git ls-files` -> finds the files with markers
+* Reads files in your project -> to find markers and write benchmarks
+* Writes files in your project -> reports in `bench-results/`, benchmarks in `benchmarks/`
+* If bench-node is missing, Claude asks you before it runs `npm install --save-dev bench-node`
+
 ## Development
 
 Node.js 22.12 or newer (Vitest 5). `.nvmrc` uses Node.js 24.
