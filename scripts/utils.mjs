@@ -56,3 +56,33 @@ export const collectEnvironment = (cwd, benchNode, loadAverage) => {
 
 export const readCapture = (captureFile) =>
   fs.existsSync(captureFile) ? JSON.parse(fs.readFileSync(captureFile, 'utf8')) : null;
+
+const SOURCE_FILE = /\.(?:[cm]?[jt]s|[jt]sx)$/;
+
+const walk = (dir) =>
+  fs.readdirSync(dir, { withFileTypes: true }).flatMap((entry) => {
+    if (entry.name === 'node_modules' || entry.name.startsWith('.')) return [];
+    const file = path.join(dir, entry.name);
+    return entry.isDirectory() ? walk(file) : [file];
+  });
+
+const gitFiles = (dir) =>
+  execFileSync('git', ['ls-files', '--cached', '--others', '--exclude-standard', '-z'], {
+    cwd: dir,
+    encoding: 'utf8',
+    stdio: ['ignore', 'pipe', 'ignore'],
+  })
+    .split('\0')
+    .filter(Boolean)
+    .map((file) => path.join(dir, file));
+
+export const listSourceFiles = (target) => {
+  if (!fs.statSync(target).isDirectory()) return [target];
+  let files;
+  try {
+    files = gitFiles(target);
+  } catch {
+    files = walk(target);
+  }
+  return files.filter((file) => SOURCE_FILE.test(file) && fs.existsSync(file)).sort();
+};

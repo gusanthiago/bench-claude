@@ -4,17 +4,10 @@ import os from 'node:os';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { afterEach, beforeEach, describe, expect, it } from 'vitest';
+import { writeFiles } from './files.mjs';
 
 const BENCH = fileURLToPath(new URL('../scripts/bench.mjs', import.meta.url));
 const fixture = (name) => fileURLToPath(new URL(`./fixtures/${name}`, import.meta.url));
-
-const writeFiles = (root, files) => {
-  for (const [name, content] of Object.entries(files)) {
-    const file = path.join(root, name);
-    fs.mkdirSync(path.dirname(file), { recursive: true });
-    fs.writeFileSync(file, content);
-  }
-};
 
 let tmpDir;
 let outDir;
