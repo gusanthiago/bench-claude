@@ -29,9 +29,38 @@ I decided to use bench-node because it's a good tool for Node.js and I have been
 Copy/paste into Claude Code:
 
 ```
+/plugin install bench-claude --marketplace gusanthiago/bench-claude
+```
+
+Claude Code asks you to confirm the marketplace and where to install it -> done. Now type `/bench-claude:bench`.
+
+<details>
+<summary><b>Other ways to install</b> -> older Claude Code, terminal, your team</summary>
+
+**Claude Code older than 2.1.275** -> no `--marketplace` option
+
+```
 /plugin marketplace add gusanthiago/bench-claude
 /plugin install bench-claude@gusanthiago
 ```
+
+**Terminal** -> without opening Claude Code
+
+```sh
+claude plugin marketplace add gusanthiago/bench-claude
+claude plugin install bench-claude@gusanthiago
+```
+
+**Your team** -> run it in your project and commit `.claude/settings.json`
+
+```sh
+claude plugin marketplace add gusanthiago/bench-claude --scope project
+claude plugin install bench-claude@gusanthiago --scope project
+```
+
+Your teammates get the plugin after they trust the project folder.
+
+</details>
 
 You need:
 
@@ -141,9 +170,10 @@ Everything runs on your machine. The plugin doesn't send your data anywhere and 
 ## Update
 
 ```sh
-claude plugin marketplace update gusanthiago
 claude plugin update bench-claude@gusanthiago
 ```
+
+Or turn on auto-update -> `/plugin` -> **Marketplaces** -> `gusanthiago` -> **Enable auto-update**.
 
 ## Development
 
