@@ -129,7 +129,7 @@ With bench-node 0.5.0 – 0.5.3 the report has no mean, p75, p99 and CV (these v
 
 ## What it runs
 
-Everything runs on your machine. The plugin doesn't send your data anywhere and doesn't download anything.
+Everything runs on your machine. The plugin doesn't send your data anywhere and doesn't download anything without asking you.
 
 * `node` -> runs the benchmark file that you choose (your own code), with `--allow-natives-syntax`, `--expose-gc` and `--require scripts/capture.cjs`
 * `git rev-parse` and `git status` -> add the commit and branch to the report
